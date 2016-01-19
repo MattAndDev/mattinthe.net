@@ -1,0 +1,98 @@
+//============================================
+// Layout
+//============================================
+
+
+html
+  height: 100%
+
+*::selection
+    color: $black
+    background: $primary
+
+body
+  background-color: #f7f7f7; 
+  +mq($bp-sm)
+    background-image: linear-gradient(90deg, transparent 100px, #f2f2f2 100px, #abced4 81px, transparent 81px),linear-gradient(#f2f2f2 .1em, transparent .1em);
+    background-size: 100% 2.2em;
+
+body,
+.l-wrap
+  height: 100%
+  padding: 10px
+  min-height: 500px
+
+.l-wrap
+  position: relative
+  +mq($bp-sm)
+    overflow: hidden
+
+.ready .l-section
+  opacity: 1
+
+.flex
+  display: flex
+
+.l-section
+  transition: opacity .5s .6s
+  opacity: 0
+  margin-bottom: 10px;
+  z-index: 100
+
+.l-topLeft
+  // +pos(20px, top left)
+  +mq($bp-sm)
+    +pos(30px, top left)
+  +mq($bp-md)
+    +pos(50px 60px, top left)
+
+.l-topRight
+  // +pos(20px, top right)
+  +mq($bp-sm)
+    +pos(30px, top right)
+  +mq($bp-md)
+    +pos(50px 60px, top right)
+
+.l-botRight
+  // +pos(20px, top right)
+  display: none
+  +mq($bp-sm)
+    display: block
+    +pos(10px 30px, bottom right)
+  +mq($bp-md)
+    +pos(10px 60px, bottom right)
+
+.l-title
+  font-size: 15px
+  span
+    font-weight: bold
+  +mq($bp-sm)
+    font-size: 20px
+
+.l-fadein
+  opacity: 0
+  transition: opacity .5s .6s
+
+.l-subtitle
+  font-size: 13px
+  line-height: 20px
+  transition: opacity .5s .6s
+  +mq($bp-sm)
+    font-size: 16px
+    
+
+.l-fadein.is-visible
+  opacity: 1
+
+.type-anim
+  position: relative
+  &::after
+    +pos(50% 50% -3px, right left bottom)
+    content: ""
+    background: $primary
+    height: 1px
+    transition: all .4s
+.type-anim.finished
+  &::after
+    left: 0
+    right: 0

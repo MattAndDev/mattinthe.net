@@ -1,0 +1,149 @@
+.stage
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  justify-content: center
+  height: 400px
+  +mq($bp-sm)
+    align-items: center
+    height: auto
+    min-height: 500px
+    flex-direction: row
+    +pos(100px, all)
+
+.stage_item
+  transition: all .3s
+  overflow: hidden
+  flex-basis: 40%
+  display: block
+  position: relative
+  +mq($bp-sm)
+    min-height: 50%
+    flex-basis: 30%
+
+.stage_item-content
+  transition: all .3s
+  flex-basis: 0%
+  transform: scale(0)
+  overflow: hidden
+
+
+.stage_item.is-hidden
+  transform: scale(0)
+  flex-basis: 0%
+
+.stage_item-content.is-visible
+  transform: scale(1)
+  flex-basis: 30%
+  overflow: auto
+
+.stage_item-experiments
+  text-align: right
+
+.stage_item_inner
+  transform: scale(0)
+  +pos(0,all)
+  text-align: center
+  transition: all 2s 1s
+
+.stage_item_icon
+  +center-transform()
+  svg
+    transition: all 1s
+  span
+    font-size: 12px
+    opacity: 0
+    display: block
+    margin-top: -40px
+    transition: all 1s
+    z-index: -1
+    position: relative
+
+.stage_item.is-toggled,
+.no-touch .stage_item_icon:hover
+  svg
+    fill: $primary
+    transform: rotate(360deg)
+  span
+    font-size: 18px
+    opacity: 1
+    margin-top: 20px
+    z-index: -1
+    position: relative
+
+
+
+.stage.ready
+  .stage_item_inner
+    transform: scale(1)
+
+
+
+.stage_list
+  list-style: none
+  padding: 0 20px
+  font-size: 15px
+  width: 250px
+  margin: 0 auto
+  line-height: 22px
+  +mq($bp-sm)
+    font-size: 16px
+    width: auto
+    margin: 0
+    line-height: 26px
+    
+
+.stage_list_link
+  line-height: 1
+  position: relative
+  &::after,
+  &::before
+    opacity: .2
+    transition: all .2s
+    content: ""
+    +pos(4px -8px 5px, top right bottom)
+    width: 1px
+    background: $black
+
+
+
+.no-touch .stage_list_link:hover
+  &::after
+    width: 1px
+    top: 2px
+    bottom: 2px
+    opacity: 1
+    transform: rotate(-115deg) translate3d(-4px, 4px,0px)
+  &::before
+    opacity: 1
+    top: 2px
+    width: 1px
+    bottom: 2px
+    transform: rotate(-65deg) translate3d(5px, 4px,0px)
+
+
+.stage_list_link-back
+  line-height: 1
+  position: relative
+  &::after,
+  &::before
+    opacity: .2
+    transition: all .3s
+    content: ""
+    +pos(4px -8px 5px, top left bottom)
+    width: 1px
+    background: $black
+
+.no-touch .stage_list_link-back:hover
+  &::after
+    width: 1px
+    top: 2px
+    bottom: 2px
+    opacity: 1
+    transform: rotate(-65deg) translate3d(-4px, -4px,0px)
+  &::before
+    top: 2px
+    opacity: 1
+    width: 1px
+    bottom: 2px
+    transform: rotate(-115deg) translate3d(5px, -4px,0px)

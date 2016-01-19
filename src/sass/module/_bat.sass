@@ -1,0 +1,66 @@
+.bat_list-reset
+  list-style: none
+  margin: 0
+  padding: 0
+  overflow: hidden
+  width: 290px;
+  .bat_list-reset_item:nth-child(odd)
+    clear: left
+    width: 150px
+    float: left
+  .bat_list-reset_item:nth-child(even)
+    float: left
+
+  +mq($bp-sm)
+    width: auto;
+    .bat_list-reset_item:nth-child(odd)
+      clear: none
+      width: auto
+
+.bat_list
+  transform-origin: 0% 0%
+  transition: all .3s
+  list-style: none
+  margin: 0
+  padding: 0 0 0 8px
+  font-size: 14px
+  line-height: 20px
+  overflow: hidden
+  font-weight: 300
+  margin: 0 2px 10px 0
+  li
+    float: none
+  li.title
+    position: relative
+    line-height: 20px
+    font-weight: 500
+    margin: 10px 0 10px
+    padding-left: 0px
+    &::before
+      content: ""
+      width: 15px
+      height: 1px
+      background: $black
+      +pos(-4px -3px, top left)
+    &::after
+      content: ""
+      width: 15px
+      height: 1px
+      background: $black
+      +pos(-2px 0, bottom left)
+  +mq($bp-sm)
+    margin: 0 35px 10px 0
+    display: block
+
+.bat_list.is-visible
+  transform: scale(1)
+
+.bat_trigger
+  height: 30px
+  line-height: 30px
+  cursor: pointer
+  span
+    vertical-align: top
+    margin-left: 10px
+    opacity: 0
+    color: $primary
