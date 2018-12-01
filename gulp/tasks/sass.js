@@ -8,7 +8,6 @@ var handleErrors = require('../util/handleErrors');
 var config       = require('../config').sass;
 var autoprefixer = require('gulp-autoprefixer');
 var cssimport    = require("gulp-cssimport");
-
 gulp.task('sass', function () {
   return gulp.src(config.src)
     .pipe(sourcemaps.init())

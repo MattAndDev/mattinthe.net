@@ -25,7 +25,9 @@ $ ->
     pauseDelay: 1000
     loop: false
     postfix: '!'
-  m = malarkey(elem, opts)
+  callback = (text) =>
+    elem.textContent = text
+  m = malarkey(callback, opts)
     .pause()
     .pause()
     .pause()

@@ -12,6 +12,7 @@ var gulpif    = require('gulp-if');
 // Clean
 gulp.task('sprite:clean', function(cb){
   del([config.dest + '/images/sprite-*.svg'], {dot: true}, cb);
+  cb()
 });
 
 
